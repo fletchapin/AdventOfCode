@@ -26,5 +26,7 @@ def counter(increment0, increment1):
 
     return count
 
+# Answer to Part 1
 print(counter(3, 1))
+# Answer to Part 2
 print(counter(1, 1) * counter(3, 1) *  counter(5, 1) *  counter(7, 1) *  counter(1, 2))

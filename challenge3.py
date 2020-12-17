@@ -82,4 +82,6 @@ for pp in passports:
     if np.all(list(required.values())):
         count += 1
 
+# Answer to Part 1 overwritten
+# Answer to Part 2
 print(count)

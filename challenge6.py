@@ -30,7 +30,9 @@ for _, value in answers_dict.items():
     if value:
         sum += 1
 
+# Answer to Part 1
 print(sum)
+# Answer to Part 2
 print(russian_doll('shiny gold', bag_dict) - 1)
 
 def russian_doll(bag_name, bag_dict):

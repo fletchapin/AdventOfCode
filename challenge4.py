@@ -12,17 +12,19 @@ for line in lines:
     if id > max_id:
         max_id = id
 
+# Answer to Part 1
 print(max_id)
 
 ids = np.sort(ids)
 prev = ids[0]
 for i in range(1, len(ids)):
     if ids[i] - 1 != prev:
+        # Answer to Part 2
         print(ids[i] - 1)
-        # ids[i:] -= 8
+        break
 
     prev = ids[i]
-    
+
 def get_id(string):
     row = parse(string[0:7], True)
     col = parse(string[7:], False)

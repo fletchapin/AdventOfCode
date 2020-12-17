@@ -17,6 +17,7 @@ sum = 0
 for answer in forms:
     sum += len(set(answer))
 
+# Answer to Part 1
 print(sum)
 
 forms = []
@@ -46,4 +47,5 @@ for answers in forms:
             if valid:
                 sum += 1
 
+# Answer to Part 2
 print(sum)

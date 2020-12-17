@@ -15,6 +15,8 @@ for i in range(0, entries.size - 1):
 # this accounts for wall-to-charger and charger-to-device differences
 three_count += 1
 one_count += 1
+
+# Answer to Part 1
 print(one_count * three_count)
 
 permutations = {}
@@ -33,6 +35,7 @@ permutations[1] = (
     + get_zero_if_none(permutations, 4)
 )
 
+# Answer to Part 2
 print(permutations[1] + permutations[2] + permutations[3])
 
 def get_zero_if_none(dict, key):

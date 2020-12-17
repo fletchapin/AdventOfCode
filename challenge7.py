@@ -11,6 +11,7 @@ while i in range(len(lines)):
     seen[i] = True
     i, acc = process(i, lines[i].strip(), acc)
 
+# Answer to Part 1
 print(acc)
 
 def process(index, line, acc):
@@ -41,4 +42,5 @@ for j in range(len(lines)):
     if i >= len(lines):
         break
 
+# Answer to Part 2
 print(acc)

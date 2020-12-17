@@ -16,6 +16,7 @@ for i in range(0, entries[0].size):
     if count >= int(requirement_min) and count <= int(requirement_max):
         valid_count += 1
 
+# Answer to Part 1
 print(valid_count)
 
 valid_count = 0
@@ -31,4 +32,5 @@ for i in range(0, entries[0].size):
     if (bool1 and not bool2) or (bool2 and not bool1):
         valid_count += 1
 
+# Answer to Part 2
 print(valid_count)

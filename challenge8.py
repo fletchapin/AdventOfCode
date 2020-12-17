@@ -15,6 +15,7 @@ for line in lines:
     else:
         nums.append(val)
 
+# Answer to Part 1
 print(val)
 
 def check_sums(val, nums):
@@ -38,4 +39,5 @@ for i in range(len(lines)):
     if sum == goal:
         break
 
+# Answer to Part 2
 print(min(cont_nums) + max(cont_nums))

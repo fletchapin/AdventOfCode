@@ -11,6 +11,7 @@ for i in range(entries.size - 1, 0, -1):
         answer = np.where(result == 2020)[0][0]
         break
 
+# Answer to Part 1
 print("The answer is " + str(entries.at[i, 0] * entries.at[answer, 0]))
 
 for j in range(entries.size - 1, 0, -1):
@@ -25,4 +26,5 @@ for j in range(entries.size - 1, 0, -1):
         answer = np.where(result == 2020)[0][0]
         break
 
+# Answer to Part 2
 print("The answer is " + str(entries.at[i, 0] * entries.at[j, 0] * entries.at[answer, 0]))
