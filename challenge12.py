@@ -15,35 +15,6 @@ def lcm(a, b=None):
     else:
         return a * b // math.gcd(a, b)
 
-def process(ids, diff, lcm_list, sum=1, i=1, possible=[], limit=1000000000000000):
-    while not get_valid(possible, ids, diff):
-        if i > limit:
-            break
-        success = True
-        for j, id in enumerate(ids):
-            if i % id != diff[j] and i % id != id - diff[j]:
-                if lcm_list[j] > sum:
-                    possible = process(ids, diff, lcm_list,
-                                       lcm_list[j-1], i=i+lcm_list[j-1],
-                                       possible=possible, limit=limit)
-                    possible = process(ids, diff, lcm_list,
-                                       lcm_list[j], i=i+lcm_list[j],
-                                       possible=possible, limit=limit)
-                    return possible
-                    if j < len(ids) - 1 and i > 2 * lcm_list[j]:
-                        return possible
-                    else:
-                        sum = lcm_list[j]
-
-                i += sum
-                success = False
-                break
-
-        if success:
-            possible.append(i)
-            i += sum
-
-    return possible
 
 def get_valid(possible, ids, diff):
     result = None
@@ -61,7 +32,68 @@ def get_valid(possible, ids, diff):
 
     return result
 
-def run(filepath, i=1, limit=10000):
+def process(ids, diff, lcm_list, sum=1, i=1, possible=[], limit=10000000):
+    success = False
+    while not success:
+        if i > limit:
+            break
+        success = True
+        last = None
+        for j, id in enumerate(ids):
+            if last is None:
+                if i % id == diff[j]:
+                    last = True
+                    continue
+                elif i % id == id - diff[j]:
+                    last = False
+                    continue
+                elif lcm_list[j] > sum:
+                    possible = process(ids, diff, lcm_list,
+                                       lcm_list[j], i=lcm_list[j] - i,
+                                       possible=possible)
+                    possible = process(ids, diff, lcm_list,
+                                       lcm_list[j], i=lcm_list[j] + i,
+                                       possible=possible)
+
+                    if j < len(ids) - 1 and i > 2 * lcm_list[j]:
+                        return possible
+                    else:
+                        sum = lcm_list[j]
+
+                i += sum
+                success = False
+                break
+
+            elif (i % id == diff[j] and not last):
+                last = True
+                continue
+            elif (i % id == id - diff[j] and last):
+                last = False
+                continue
+            else:
+                if lcm_list[j] > sum:
+                    possible = process(ids, diff, lcm_list,
+                                       lcm_list[j], i=lcm_list[j] - i,
+                                       possible=possible)
+                    possible = process(ids, diff, lcm_list,
+                                       lcm_list[j], i=lcm_list[j] + i,
+                                       possible=possible)
+
+                    if j < len(ids) - 1 and i > 2 * lcm_list[j]:
+                        return possible
+                    else:
+                        sum = lcm_list[j]
+
+                i += sum
+                success = False
+                break
+
+        if success:
+            possible.append(i)
+
+    return possible
+
+def run(filepath, i=1, limit=10000000):
     file = open(filepath, 'r+')
     lines = [line.strip() for line in file.readlines()]
 
@@ -85,13 +117,16 @@ def run(filepath, i=1, limit=10000):
     least_common_multiples = [lcm(sorted_ids[0:j]) for j in range(1, len(sorted_ids))]
     least_common_multiples.insert(0, 1)
 
-    possible = process(sorted_ids, sorted_diff, least_common_multiples, sum=1, i=i,
-                       limit=limit)
+    possible = process(sorted_ids, sorted_diff, least_common_multiples, sum=1,
+                       i=i, limit=limit)
     possible.sort()
+    print(possible)
+
     # Answer to Part 2
     print(get_valid(list(set(possible)), bus_ids, required_diff))
 
-run('challenge12_test0.txt', limit=10000)
-run('challenge12_test1.txt', limit=1000000)
-run('challenge12_test2.txt', i=1000000, limit=10000000)
-run('challenge12.txt', i=100000000000000, limit=1000000000000000)
+run('challenge12_test0.txt')
+run('challenge12_test1.txt')
+run('challenge12_test2.txt')
+run('challenge12_test3.txt')
+run('challenge12.txt', limit=10000000000000000)
