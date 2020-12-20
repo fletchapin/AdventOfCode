@@ -1,6 +1,6 @@
 import numpy as np
 
-file = open('challenge10.txt', 'r+')
+file = open('data/2020/challenge10.txt', 'r+')
 lines = file.readlines()
 
 matrix = []

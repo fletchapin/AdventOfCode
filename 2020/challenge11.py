@@ -1,4 +1,4 @@
-file = open('challenge11.txt', 'r+')
+file = open('data/2020/challenge11.txt', 'r+')
 lines = [line.strip() for line in file.readlines()]
 
 pos = (0, 0, 0)

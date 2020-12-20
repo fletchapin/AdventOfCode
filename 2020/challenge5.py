@@ -1,4 +1,4 @@
-file = open('challenge5.txt', 'r+')
+file = open('data/2020/challenge5.txt', 'r+')
 lines = file.readlines()
 
 forms = []

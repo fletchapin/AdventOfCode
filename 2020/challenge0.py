@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
+import os
 
-entries = pd.read_csv('challenge0.csv', header=None)
+entries = pd.read_csv('data/2020/challenge0.csv', header=None)
 entries.sort_values(0, inplace=True, ignore_index=True)
 
 for i in range(entries.size - 1, 0, -1):

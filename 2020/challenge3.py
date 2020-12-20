@@ -1,6 +1,6 @@
 import numpy as np
 
-file = open('challenge3.txt', 'r+')
+file = open('data/2020/challenge3.txt', 'r+')
 lines = file.readlines()
 
 passports = []

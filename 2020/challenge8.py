@@ -1,4 +1,4 @@
-file = open('challenge8.txt', 'r+')
+file = open('data/2020/challenge8.txt', 'r+')
 lines = file.readlines()
 
 nums = []

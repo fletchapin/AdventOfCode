@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-entries = pd.read_csv('challenge1.txt', sep=' ', header=None)
+entries = pd.read_csv('data/2020/challenge1.txt', sep=' ', header=None)
 valid_count = 0
 
 for i in range(0, entries[0].size):

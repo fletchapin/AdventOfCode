@@ -94,8 +94,8 @@ def run(filepath, i=1):
     # Answer to Part 2
     print(get_valid(list(set(possible)), bus_ids, required_diff))
 
-run('data/challenge12_test0.txt')
-run('data/challenge12_test1.txt')
-run('data/challenge12_test2.txt')
-run('data/challenge12_test3.txt')
-run('data/challenge12.txt')
+run('data/2020/challenge12_test0.txt')
+run('data/2020/challenge12_test1.txt')
+run('data/2020/challenge12_test2.txt')
+run('data/2020/challenge12_test3.txt')
+run('data/2020/challenge12.txt')

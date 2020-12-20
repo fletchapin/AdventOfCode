@@ -1,4 +1,4 @@
-file = open('challenge6.txt', 'r+')
+file = open('data/2020/challenge6.txt', 'r+')
 lines = file.readlines()
 
 bag_dict = {}

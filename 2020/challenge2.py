@@ -1,4 +1,4 @@
-file = open('challenge2.txt', 'r+')
+file = open('data/2020/challenge2.txt', 'r+')
 lines = file.readlines()
 
 matrix = []

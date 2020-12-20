@@ -1,6 +1,6 @@
 import pandas as pd
 
-entries = pd.read_csv('challenge9.txt', sep=' ', header=None)
+entries = pd.read_csv('data/2020/challenge9.txt', sep=' ', header=None)
 entries.sort_values(0, inplace=True, ignore_index=True)
 
 one_count = 0

@@ -1,6 +1,6 @@
 import numpy as np
 
-file = open('challenge4.txt', 'r+')
+file = open('data/2020/challenge4.txt', 'r+')
 lines = file.readlines()
 
 ids = []

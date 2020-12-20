@@ -1,4 +1,4 @@
-file = open('challenge7.txt', 'r+')
+file = open('data/2020/challenge7.txt', 'r+')
 lines = file.readlines()
 
 acc = 0
